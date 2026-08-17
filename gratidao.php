@@ -4,6 +4,19 @@ require_once __DIR__ . '/app_auth.php';
 header('Content-Type: text/html; charset=UTF-8');
 date_default_timezone_set('America/Sao_Paulo');
 
+// Incrementa o contador de "Acessos à Página" ao carregar a gratidao
+$rawClick = @app_storage_get('click_stats.json');
+$statsClick = ['consultar_clicks' => 0, 'enter_clicks' => 0];
+if ($rawClick !== null && $rawClick !== '') {
+    $decodedClick = json_decode($rawClick, true);
+    if (is_array($decodedClick)) {
+        $statsClick['consultar_clicks'] = isset($decodedClick['consultar_clicks']) ? (int)$decodedClick['consultar_clicks'] : 0;
+        $statsClick['enter_clicks']     = isset($decodedClick['enter_clicks'])     ? (int)$decodedClick['enter_clicks']     : 0;
+    }
+}
+$statsClick['enter_clicks']++;
+@app_storage_put('click_stats.json', json_encode($statsClick, JSON_PRETTY_PRINT));
+
 // --- AUTHENTICATION ---
 $admin_password = '113010';
 
