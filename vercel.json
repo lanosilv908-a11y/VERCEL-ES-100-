@@ -39,7 +39,7 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/api/router.php?__file=index.php"
+      "dest": "/index.html"
     },
     {
       "src": "/(admin_ips|click_stats|consultados_log|pix_config|pix_config_admin|pix_last|pix_log|pix_log_oculto|search_log|stats)\\.json",
@@ -50,20 +50,20 @@
       "dest": "/api/router.php?__storage=pix_mode.txt"
     },
     {
-      "src": "/index\\.html",
-      "dest": "/api/router.php?__file=index.php"
-    },
-    {
       "src": "/index\\.php",
-      "dest": "/api/router.php?__file=index.php"
-    },
-    {
-      "src": "/debitos\\.html",
-      "dest": "/api/router.php?__file=debitos.php"
+      "dest": "/index.html"
     },
     {
       "src": "/debitos\\.php",
-      "dest": "/api/router.php?__file=debitos.php"
+      "dest": "/debitos.html"
+    },
+    {
+      "src": "/debitos\\.html",
+      "dest": "/debitos.html"
+    },
+    {
+      "src": "/index\\.html",
+      "dest": "/index.html"
     },
     {
       "src": "/([^/]+\\.php)",
